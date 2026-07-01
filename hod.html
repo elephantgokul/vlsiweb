@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Message from the Head of Department — ECE, SIET"/>
+  <title>HOD Desk — ECE | SIET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script>
+    tailwind.config={theme:{extend:{colors:{'ink-navy':'#0b1b33','ink-light':'#122a4d','circuit-blue':'#1652c4','circuit-dark':'#103e94','signal-cyan':'#2fe6dd','mist':'#f4f7fb'},fontFamily:{display:['Space Grotesk','sans-serif'],body:['IBM Plex Sans','sans-serif'],mono:['IBM Plex Mono','monospace']},borderRadius:{'3xl':'1.5rem','4xl':'2rem'}}}}
+  </script>
+</head>
+<body class="font-body antialiased text-ink-navy bg-white">
+
+<div id="loading-screen" role="status" aria-label="Loading">
+  <p class="loader-mark">ECE<span style="color:#2fe6dd">·</span>SIET</p>
+  <div class="loader-trace"></div>
+</div>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header id="site-header" role="banner">
+  <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3 z-10">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-mono font-semibold text-xs" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">ECE</div>
+      <div class="leading-none">
+        <p class="brand-text font-display font-semibold text-sm transition-colors">SIET</p>
+        <p class="brand-text text-xs opacity-60 mt-0.5 transition-colors">Electronics &amp; Communication</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#about" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">About</a>
+      <a href="hod.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">HOD Desk</a>
+      <a href="faculty.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Faculty</a>
+      <a href="labs.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Labs</a>
+      <a href="achievements.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Achievements</a>
+      <a href="placements.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Placements</a>
+      <a href="contact.html" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Contact</a>
+    </nav>
+    <a href="resources.html" class="hidden lg:inline-flex btn-primary text-sm font-semibold text-white rounded-xl" style="padding:.55rem 1.15rem;">Resources</a>
+    <button id="menu-toggle" class="lg:hidden nav-link w-10 h-10 flex items-center justify-center rounded-xl" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-lg"></i><i class="fa-solid fa-xmark text-lg hidden"></i>
+    </button>
+  </div>
+  <nav id="mobile-menu">
+    <div class="max-w-screen-xl mx-auto px-5 pt-3 pb-5 flex flex-col gap-1" style="background:rgba(11,27,51,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08)">
+      <a href="../index.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Home</a>
+      <a href="faculty.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Faculty</a>
+      <a href="labs.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Labs</a>
+      <a href="contact.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="relative flex items-end overflow-hidden" style="min-height:38vh;background:linear-gradient(135deg,#0b1b33 0%,#1652c4 100%);padding:8rem 1.25rem 3.5rem">
+    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.11">
+      <svg width="100%" height="100%"><defs><pattern id="ph" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M0 40H80M40 0V80" stroke="#2fe6dd" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="2" fill="#2fe6dd"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph)"/></svg>
+    </div>
+    <div class="max-w-screen-xl mx-auto w-full relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-xs font-mono" style="color:rgba(255,255,255,.45)">
+          <li><a href="../index.html" style="transition:color .2s" onmouseover="this.style.color='#2fe6dd'" onmouseout="this.style.color=''">Home</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px]"></i></li>
+          <li style="color:#2fe6dd">HOD Desk</li>
+        </ol>
+      </nav>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-white">HOD's Desk</h1>
+      <p class="mt-2 text-sm md:text-base" style="color:rgba(255,255,255,.55)">A message from the Head of Department</p>
+    </div>
+  </section>
+
+  <!-- HOD PROFILE -->
+  <section class="py-20 bg-white">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+        <!-- Sidebar profile card -->
+        <div data-aos="fade-right">
+          <!-- Photo placeholder -->
+          <div class="rounded-3xl overflow-hidden mb-6 relative" style="aspect-ratio:4/5;background:linear-gradient(145deg,#e8edf5,#d0daea)">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">
+                <i class="fa-solid fa-user text-white text-3xl"></i>
+              </div>
+              <p class="text-xs font-mono" style="color:#5b6478">Replace with HOD photo</p>
+            </div>
+          </div>
+
+          <!-- Info card -->
+          <div class="surface-card rounded-3xl p-6">
+            <h2 class="font-display font-bold text-xl mb-1" style="color:#0b1b33">Dr. [Name Surname]</h2>
+            <p class="text-sm mb-4 font-medium" style="color:#1652c4">Head of Department</p>
+
+            <ul class="space-y-3" style="font-size:.83rem;color:#5b6478">
+              <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-graduation-cap mt-0.5 flex-shrink-0" style="color:#2fe6dd"></i>
+                <div>
+                  <p class="font-semibold" style="color:#0b1b33">Qualification</p>
+                  <p>Ph.D (ECE), M.E, B.E</p>
+                </div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-briefcase mt-0.5 flex-shrink-0" style="color:#2fe6dd"></i>
+                <div>
+                  <p class="font-semibold" style="color:#0b1b33">Experience</p>
+                  <p>22+ Years (Teaching &amp; Research)</p>
+                </div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-flask mt-0.5 flex-shrink-0" style="color:#2fe6dd"></i>
+                <div>
+                  <p class="font-semibold" style="color:#0b1b33">Research Area</p>
+                  <p>VLSI Design, Low-Power Electronics, IoT Systems</p>
+                </div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-envelope mt-0.5 flex-shrink-0" style="color:#2fe6dd"></i>
+                <div>
+                  <p class="font-semibold" style="color:#0b1b33">Email</p>
+                  <a href="mailto:hod.ece@siet.ac.in" style="color:#1652c4">hod.ece@siet.ac.in</a>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Social links -->
+            <div class="mt-5 pt-5 flex gap-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="LinkedIn" title="LinkedIn"
+                 class="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-semibold transition-all"
+                 style="background:#f0f4ff;color:#1652c4"
+                 onmouseover="this.style.background='#1652c4';this.style.color='#fff'"
+                 onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a href="#" aria-label="Google Scholar" title="Google Scholar"
+                 class="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-semibold transition-all"
+                 style="background:#f0f4ff;color:#1652c4"
+                 onmouseover="this.style.background='#1652c4';this.style.color='#fff'"
+                 onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'">
+                <i class="fa-solid fa-graduation-cap"></i> Scholar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="lg:col-span-2 space-y-8" data-aos="fade-left" data-aos-delay="80">
+
+          <!-- Message -->
+          <div>
+            <p class="eyebrow-tag font-mono text-xs uppercase tracking-widest mb-3" style="color:#1652c4">Message from the HOD</p>
+            <h3 class="font-display font-bold text-2xl mb-5" style="color:#0b1b33">Shaping Engineers, Building Futures</h3>
+            <div style="color:#5b6478;line-height:1.85;font-size:.9rem" class="space-y-4">
+              <p>Welcome to the Department of Electronics and Communication Engineering at SIET. Our department stands as a testament to decades of dedication — blending rigorous academics with hands-on experience to shape engineers who are ready for the challenges of tomorrow.</p>
+              <p>We believe engineering education must go beyond textbooks. That is why our labs are equipped with industry-standard tools, our curriculum is industry-aligned, and our faculty remain active in research and professional development.</p>
+              <p>Our students go on to work at leading semiconductor, communication, and technology companies — and several have founded startups of their own. This outcome is not accidental; it is the product of a deliberate, student-first approach to education that our entire faculty team is committed to.</p>
+              <p>I invite students, parents, and industry partners to engage with our department. Together, we can continue building an institution that produces not just engineers, but problem solvers and innovators.</p>
+            </div>
+            <p class="mt-6 font-display font-semibold" style="color:#0b1b33">Dr. [Name Surname]</p>
+            <p style="font-size:.8rem;color:#5b6478">Head of Department, ECE — SIET</p>
+          </div>
+
+          <!-- Research interests -->
+          <div class="surface-card rounded-2xl p-7">
+            <h4 class="font-display font-semibold text-base mb-5 flex items-center gap-2" style="color:#0b1b33">
+              <i class="fa-solid fa-flask" style="color:#1652c4"></i> Research Interests
+            </h4>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">VLSI Design</span>
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">Low-Power Electronics</span>
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">IoT Systems</span>
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">Embedded Systems</span>
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">Signal Processing</span>
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium" style="background:#f0f4ff;color:#1652c4">RF Communication</span>
+            </div>
+          </div>
+
+          <!-- Publications / Awards row -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="surface-card rounded-2xl p-7">
+              <h4 class="font-display font-semibold text-base mb-4 flex items-center gap-2" style="color:#0b1b33">
+                <i class="fa-solid fa-book-open" style="color:#1652c4"></i> Key Publications
+              </h4>
+              <ul class="space-y-3">
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  "Low-power VLSI architecture for edge AI inference" — IEEE Transactions on VLSI Systems, 2024
+                </li>
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  "Adaptive antenna array design for 5G mmWave" — Int. Journal of RF Engineering, 2023
+                </li>
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  "Energy-efficient IoT sensor nodes using CMOS sub-threshold design" — VLSI-SoC, 2022
+                </li>
+              </ul>
+            </div>
+            <div class="surface-card rounded-2xl p-7">
+              <h4 class="font-display font-semibold text-base mb-4 flex items-center gap-2" style="color:#0b1b33">
+                <i class="fa-solid fa-trophy" style="color:#1652c4"></i> Awards &amp; Honours
+              </h4>
+              <ul class="space-y-3">
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  Best Faculty Researcher Award — SIET, 2024
+                </li>
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  Senior Member, IEEE — Since 2019
+                </li>
+                <li class="flex gap-2 items-start" style="font-size:.81rem;color:#5b6478">
+                  <i class="fa-solid fa-circle-dot mt-1 text-[8px]" style="color:#2fe6dd"></i>
+                  IETE Fellow — Since 2021
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Vision statement -->
+          <div class="rounded-3xl p-7 relative overflow-hidden" style="background:linear-gradient(135deg,#0b1b33,#1652c4)">
+            <div aria-hidden="true" style="position:absolute;top:-1rem;right:-1rem;width:8rem;height:8rem;border-radius:999px;background:rgba(47,230,221,.1)"></div>
+            <i class="fa-solid fa-quote-left text-3xl mb-4" style="color:rgba(47,230,221,.35)"></i>
+            <p class="text-white font-display font-medium text-base leading-relaxed italic mb-4">
+              "Our goal is not just to produce engineers who find jobs — but to produce engineers who create jobs, build companies, and solve problems that matter to society."
+            </p>
+            <p class="text-xs font-mono" style="color:rgba(255,255,255,.45)">— Dr. [Name Surname], HOD, ECE</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER (mini) -->
+<footer style="background:#0b1b33;padding:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)">
+  <p>&copy; <span id="current-year">2026</span> ECE Department, SIET &nbsp;·&nbsp;
+     <a href="../index.html" style="color:rgba(255,255,255,.4);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">Back to Home</a>
+  </p>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="../js/main.js"></script>
+<script>AOS.init({duration:700,once:true,offset:60});</script>
+</body>
+</html>
