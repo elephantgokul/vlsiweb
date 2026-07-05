@@ -6,6 +6,11 @@
   <meta name="description" content="Department of Electronics and Communication Engineering — SIET. Premier ECE education with modern labs, research, and outstanding placement record."/>
   <meta name="keywords" content="ECE, Electronics, Communication Engineering, SIET, VLSI, Embedded Systems"/>
   <meta name="theme-color" content="#0b1b33"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#1652c4"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="SIET ECE"/>
   <title>ECE Department — SIET</title>
 
   <!-- Preconnect -->
@@ -770,5 +775,14 @@
 <script src="js/main.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/sliders.js"></script>
+
+  <script src="js/search.js"></script>
+  <script>
+    if("serviceWorker" in navigator){
+      window.addEventListener("load", function(){
+        navigator.serviceWorker.register("sw.js").catch(function(){});
+      });
+    }
+  </script>
 </body>
 </html>
