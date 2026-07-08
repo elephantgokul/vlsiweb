@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Faculty — ECE Department, SIET"/>
+  <title>Faculty — ECE | SIET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script>tailwind.config={theme:{extend:{colors:{'ink-navy':'#0b1b33','circuit-blue':'#1652c4','signal-cyan':'#2fe6dd','mist':'#f4f7fb'},fontFamily:{display:['Space Grotesk','sans-serif'],body:['IBM Plex Sans','sans-serif'],mono:['IBM Plex Mono','monospace']}}}}</script>
+  <style>
+    .faculty-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+    .faculty-card:hover { transform: translateY(-6px); box-shadow: 0 28px 52px -24px rgba(11,27,51,.22); border-color: rgba(22,82,196,.3); }
+    .filter-btn { transition: all .25s ease; }
+    .filter-btn.active { background:#1652c4; color:#fff; }
+    .faculty-item.hidden-card { display: none; }
+  </style>
+</head>
+<body class="font-body antialiased" style="color:#0b1b33;background:#fff">
+
+<div id="loading-screen"><p class="loader-mark">ECE<span style="color:#2fe6dd">·</span>SIET</p><div class="loader-trace"></div></div>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-mono text-xs font-semibold" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">ECE</div>
+      <div><p class="brand-text font-display font-semibold text-sm transition-colors">SIET</p><p class="brand-text text-xs opacity-60 mt-0.5 transition-colors">Electronics &amp; Communication</p></div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#about" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">About</a>
+      <a href="hod.html"            class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">HOD</a>
+      <a href="faculty.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all" style="color:#2fe6dd">Faculty</a>
+      <a href="labs.html"           class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Labs</a>
+      <a href="achievements.html"   class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Achievements</a>
+      <a href="placements.html"     class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Placements</a>
+      <a href="contact.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Contact</a>
+    </nav>
+    <a href="resources.html" class="hidden lg:inline-flex btn-primary text-sm font-semibold text-white rounded-xl" style="padding:.55rem 1.15rem">Resources</a>
+    <button id="menu-toggle" class="lg:hidden nav-link w-10 h-10 flex items-center justify-center rounded-xl" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-lg"></i><i class="fa-solid fa-xmark text-lg hidden"></i>
+    </button>
+  </div>
+  <nav id="mobile-menu">
+    <div class="max-w-screen-xl mx-auto px-5 pt-3 pb-5 flex flex-col gap-1" style="background:rgba(11,27,51,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08)">
+      <a href="../index.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Home</a>
+      <a href="hod.html"      class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">HOD</a>
+      <a href="labs.html"     class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Labs</a>
+      <a href="contact.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="relative flex items-end overflow-hidden" style="min-height:38vh;background:linear-gradient(135deg,#0b1b33 0%,#1652c4 100%);padding:8rem 1.25rem 3.5rem">
+    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.11"><svg width="100%" height="100%"><defs><pattern id="ph" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M0 40H80M40 0V80" stroke="#2fe6dd" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="2" fill="#2fe6dd"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph)"/></svg></div>
+    <div class="max-w-screen-xl mx-auto w-full relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="flex items-center gap-2 text-xs font-mono" style="color:rgba(255,255,255,.45)"><li><a href="../index.html" style="transition:color .2s" onmouseover="this.style.color='#2fe6dd'" onmouseout="this.style.color=''">Home</a></li><li><i class="fa-solid fa-chevron-right text-[10px]"></i></li><li style="color:#2fe6dd">Faculty</li></ol></nav>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-white">Our Faculty</h1>
+      <p class="mt-2 text-sm md:text-base" style="color:rgba(255,255,255,.55)">38 experienced educators, researchers, and industry practitioners</p>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS -->
+  <section class="py-8 bg-mist border-b" style="border-color:#e2e8f0">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+      <div class="flex flex-wrap gap-2.5" id="filter-buttons" role="group" aria-label="Filter by specialization">
+        <button data-filter="all"         class="filter-btn active px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#0b1b33">All Faculty</button>
+        <button data-filter="vlsi"        class="filter-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478">VLSI Design</button>
+        <button data-filter="embedded"    class="filter-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478">Embedded Systems</button>
+        <button data-filter="signal"      class="filter-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478">Signal Processing</button>
+        <button data-filter="rf"          class="filter-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478">RF &amp; Antenna</button>
+        <button data-filter="iot"         class="filter-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478">IoT &amp; Networks</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACULTY GRID -->
+  <section class="py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="faculty-grid">
+
+        <!-- Professor 1 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="vlsi" data-aos="fade-up" data-aos-delay="0">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#e8edf5,#d0daea)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#1652c4;color:#fff">Prof &amp; HoD</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Dr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Professor &amp; Head</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> Ph.D (VLSI Design)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 22+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> VLSI, Low-Power Design</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">VLSI</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">CMOS</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">IoT</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="mailto:hod.ece@siet.ac.in" aria-label="Email" title="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" title="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Google Scholar" title="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" title="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 2 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="signal" data-aos="fade-up" data-aos-delay="60">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#e8f0f5,#cfe0ea)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#0b6e8c,#2fe6dd)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#2fe6dd;color:#0b1b33">Professor</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Dr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> Ph.D (Signal Processing)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 18+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> DSP, Image Processing</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">DSP</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">MATLAB</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">LabVIEW</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 3 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="embedded" data-aos="fade-up" data-aos-delay="120">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#edf0f5,#d8dae8)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#2d1652,#7eb6ff)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#7eb6ff;color:#0b1b33">Assoc. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Dr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Associate Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> Ph.D (Embedded Systems)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 14+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> ARM, RTOS, IoT</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">ARM</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">RTOS</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">FreeRTOS</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 4 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="rf" data-aos="fade-up" data-aos-delay="180">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#f0ede8,#e0d5c8)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#c46316,#f0a050)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#f0a050;color:#3d1a00">Asst. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Mr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Assistant Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> M.E (RF Engineering)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 10+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> RF, Antenna, 5G</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">RF</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">HFSS</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">5G</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 5 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="iot" data-aos="fade-up" data-aos-delay="0">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#e8f5ee,#ceeada)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#166444,#2fe6a0)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#2fe6a0;color:#0a3320">Asst. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Ms. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Assistant Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> M.Tech (IoT &amp; Networks)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 7+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> IoT, Wireless, LoRa</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">IoT</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">LoRa</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">AWS IoT</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 6 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="vlsi" data-aos="fade-up" data-aos-delay="60">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#f0e8f5,#e0ceea)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#6416c4,#b07eff)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#b07eff;color:#1a0033">Asst. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Mr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Assistant Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> M.E (VLSI Systems)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 8+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> Cadence, Verilog, FPGA</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">Verilog</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">FPGA</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">Cadence</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 7 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="signal" data-aos="fade-up" data-aos-delay="120">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#f5f0e8,#ead8c0)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#8c6416,#e6c42f)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#e6c42f;color:#3d2d00">Asst. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Ms. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Assistant Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> M.Tech (Communications)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 9+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> OFDM, Wireless, 4G/5G</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">OFDM</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">Wireless</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">MIMO</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Professor 8 -->
+        <article class="faculty-item faculty-card surface-card rounded-2xl overflow-hidden" data-spec="embedded" data-aos="fade-up" data-aos-delay="180">
+          <div class="h-44 flex items-center justify-center relative" style="background:linear-gradient(145deg,#e8f5f0,#c8e8d8)">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#0b6644,#2fe6a0)">
+              <i class="fa-solid fa-user text-white text-3xl"></i>
+            </div>
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-xs font-mono font-medium" style="background:#2fe6a0;color:#0a3320">Asst. Prof</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-sm" style="color:#0b1b33">Mr. [Faculty Name]</h3>
+            <p class="text-xs mt-0.5 mb-3 font-medium" style="color:#1652c4">Assistant Professor</p>
+            <div class="space-y-1.5 mb-4" style="font-size:.75rem;color:#5b6478">
+              <p><i class="fa-solid fa-graduation-cap w-4" style="color:#2fe6dd"></i> M.E (Embedded Systems)</p>
+              <p><i class="fa-solid fa-briefcase w-4" style="color:#2fe6dd"></i> 6+ Years Experience</p>
+              <p><i class="fa-solid fa-flask w-4" style="color:#2fe6dd"></i> STM32, ESP32, RTOS</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">STM32</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">ESP32</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">C/C++</span>
+            </div>
+            <div class="flex gap-2 pt-3" style="border-top:1px solid #e2e8f0">
+              <a href="#" aria-label="Email" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Scholar" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="#" aria-label="ORCID" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs transition-all" style="background:#f0f4ff;color:#1652c4" onmouseover="this.style.background='#1652c4';this.style.color='#fff'" onmouseout="this.style.background='#f0f4ff';this.style.color='#1652c4'"><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- end grid -->
+
+      <!-- Note -->
+      <div class="mt-14 text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm" style="background:#f4f7fb;color:#5b6478">
+          <i class="fa-solid fa-circle-info" style="color:#1652c4"></i>
+          Showing sample faculty cards. Replace placeholder names and photos with real department data.
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer style="background:#0b1b33;padding:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)">
+  <p>&copy; <span id="current-year">2026</span> ECE Department, SIET &nbsp;·&nbsp;
+     <a href="../index.html" style="color:rgba(255,255,255,.4);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">Back to Home</a>
+  </p>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="../js/main.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60});
+
+// Filter logic
+(function(){
+  var btns  = document.querySelectorAll('.filter-btn');
+  var items = document.querySelectorAll('.faculty-item');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(function(b){ b.classList.remove('active'); b.style.borderColor='#e2e8f0'; b.style.color='#5b6478'; });
+      btn.classList.add('active');
+      var f = btn.dataset.filter;
+      items.forEach(function(item){
+        if(f === 'all' || item.dataset.spec === f){ item.style.display=''; }
+        else { item.style.display='none'; }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

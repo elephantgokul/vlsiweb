@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Gallery — ECE Department, SIET"/>
+  <title>Gallery — ECE | SIET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script>tailwind.config={theme:{extend:{colors:{'ink-navy':'#0b1b33','circuit-blue':'#1652c4','signal-cyan':'#2fe6dd','mist':'#f4f7fb'},fontFamily:{display:['Space Grotesk','sans-serif'],body:['IBM Plex Sans','sans-serif'],mono:['IBM Plex Mono','monospace']}}}}</script>
+  <style>
+    /* Masonry-like grid */
+    .gallery-grid { columns:2;column-gap:1rem; }
+    @media(min-width:640px){.gallery-grid{columns:3;}}
+    @media(min-width:1024px){.gallery-grid{columns:4;}}
+    .gallery-item { break-inside:avoid; margin-bottom:1rem; cursor:pointer; position:relative; overflow:hidden; border-radius:1rem; transition:transform .3s,box-shadow .3s; }
+    .gallery-item:hover { transform:scale(1.02); box-shadow:0 20px 40px -16px rgba(11,27,51,.3); }
+    .gallery-item .overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(11,27,51,.7),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1rem; }
+    .gallery-item:hover .overlay { opacity:1; }
+    /* Filter */
+    .gal-btn { transition:all .25s; }
+    .gal-btn.active { background:#1652c4; color:#fff; border-color:#1652c4; }
+    /* Lightbox */
+    #lightbox { position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s; }
+    #lightbox.is-open { opacity:1;visibility:visible; }
+    #lightbox-bg { position:absolute;inset:0;background:rgba(11,27,51,.9);backdrop-filter:blur(10px); }
+    #lightbox-img-wrap { position:relative;z-index:1;max-width:820px;width:100%;max-height:90vh; }
+    #lightbox-img-wrap img { width:100%;max-height:75vh;object-fit:contain;border-radius:1rem; }
+    .lb-nav { position:fixed;top:50%;transform:translateY(-50%);z-index:1;background:rgba(255,255,255,.15);border:none;color:#fff;width:2.75rem;height:2.75rem;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;font-size:1rem; }
+    .lb-nav:hover { background:rgba(255,255,255,.3); }
+  </style>
+</head>
+<body class="font-body antialiased" style="color:#0b1b33;background:#fff">
+<div id="loading-screen"><p class="loader-mark">ECE<span style="color:#2fe6dd">·</span>SIET</p><div class="loader-trace"></div></div>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<header id="site-header">
+  <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-mono text-xs font-semibold" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">ECE</div>
+      <div><p class="brand-text font-display font-semibold text-sm transition-colors">SIET</p><p class="brand-text text-xs opacity-60 mt-0.5 transition-colors">Electronics &amp; Communication</p></div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#about" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">About</a>
+      <a href="faculty.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Faculty</a>
+      <a href="labs.html"           class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Labs</a>
+      <a href="achievements.html"   class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Achievements</a>
+      <a href="placements.html"     class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Placements</a>
+      <a href="gallery.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all" style="color:#2fe6dd">Gallery</a>
+      <a href="contact.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Contact</a>
+    </nav>
+    <a href="resources.html" class="hidden lg:inline-flex btn-primary text-sm font-semibold text-white rounded-xl" style="padding:.55rem 1.15rem">Resources</a>
+    <button id="menu-toggle" class="lg:hidden nav-link w-10 h-10 flex items-center justify-center rounded-xl" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-lg"></i><i class="fa-solid fa-xmark text-lg hidden"></i>
+    </button>
+  </div>
+  <nav id="mobile-menu">
+    <div class="max-w-screen-xl mx-auto px-5 pt-3 pb-5 flex flex-col gap-1" style="background:rgba(11,27,51,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08)">
+      <a href="../index.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Home</a>
+      <a href="faculty.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Faculty</a>
+      <a href="contact.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="relative flex items-end overflow-hidden" style="min-height:40vh;background:linear-gradient(135deg,#0b1b33 0%,#1652c4 100%);padding:8rem 1.25rem 3.5rem">
+    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.11"><svg width="100%" height="100%"><defs><pattern id="ph" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M0 40H80M40 0V80" stroke="#2fe6dd" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="2" fill="#2fe6dd"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph)"/></svg></div>
+    <div class="max-w-screen-xl mx-auto w-full relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="flex items-center gap-2 text-xs font-mono" style="color:rgba(255,255,255,.45)"><li><a href="../index.html" onmouseover="this.style.color='#2fe6dd'" onmouseout="this.style.color=''">Home</a></li><li><i class="fa-solid fa-chevron-right text-[10px]"></i></li><li style="color:#2fe6dd">Gallery</li></ol></nav>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-white">Gallery</h1>
+      <p class="mt-2 text-sm md:text-base" style="color:rgba(255,255,255,.55)">Moments from labs, events, workshops, and campus life</p>
+    </div>
+  </section>
+
+  <!-- FILTER + GRID -->
+  <section class="py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+
+      <!-- Filter pills -->
+      <div class="flex flex-wrap gap-2.5 mb-10" data-aos="fade-up">
+        <button class="gal-btn active px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#1652c4" data-cat="all">All</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="symposium">Symposium</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="workshop">Workshops</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="lab">Labs</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="industrial">Industrial Visit</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="sports">Sports</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="cultural">Cultural</button>
+        <button class="gal-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="alumni">Alumni Meet</button>
+      </div>
+
+      <!-- Masonry grid -->
+      <div class="gallery-grid" id="gallery-grid" data-aos="fade-up" data-aos-delay="60">
+        <!-- JS renders items -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+  <div id="lightbox-bg"></div>
+  <button class="lb-nav" id="lb-prev" style="left:1rem" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+  <div id="lightbox-img-wrap">
+    <div id="lb-placeholder" style="width:100%;aspect-ratio:4/3;border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:#122a4d">
+      <i class="fa-solid fa-image text-5xl" style="color:rgba(255,255,255,.3)"></i>
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;font-family:'IBM Plex Mono',monospace" id="lb-caption"></p>
+    </div>
+    <div style="margin-top:.75rem;text-align:center">
+      <p class="font-display font-semibold text-sm text-white" id="lb-title"></p>
+      <p class="font-mono text-xs mt-1" style="color:rgba(255,255,255,.4)" id="lb-cat"></p>
+    </div>
+  </div>
+  <button class="lb-nav" id="lb-next" style="right:1rem" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+  <button id="lb-close" style="position:fixed;top:1rem;right:1rem;z-index:1;background:rgba(255,255,255,.15);border:none;color:#fff;width:2.5rem;height:2.5rem;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.15)'" aria-label="Close lightbox">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>
+
+<footer style="background:#0b1b33;padding:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)">
+  <p>&copy; <span id="current-year">2026</span> ECE Department, SIET &nbsp;·&nbsp;
+     <a href="../index.html" style="color:rgba(255,255,255,.4);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">Back to Home</a></p>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="../js/main.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60});
+
+// Gallery data — color placeholders (replace bg colors with real <img> src)
+var galleryItems = [
+  { cat:"symposium",  title:"ELECNOVA 2025 Inauguration",  ratio:"4/3",  accent:"#1652c4" },
+  { cat:"workshop",   title:"PCB Design Workshop",          ratio:"3/4",  accent:"#0b6e8c" },
+  { cat:"lab",        title:"VLSI Lab — Cadence Session",   ratio:"4/3",  accent:"#6416c4" },
+  { cat:"symposium",  title:"Technical Paper Presentation", ratio:"16/9", accent:"#0b3366" },
+  { cat:"industrial", title:"Infosys Campus Visit 2025",    ratio:"4/3",  accent:"#166444" },
+  { cat:"cultural",   title:"Kalai Vizha 2025",             ratio:"3/4",  accent:"#c41652" },
+  { cat:"sports",     title:"Inter-Dept Cricket 2025",      ratio:"4/3",  accent:"#8c4516" },
+  { cat:"alumni",     title:"Alumni Meet 2025",             ratio:"16/9", accent:"#1652c4" },
+  { cat:"workshop",   title:"IoT Bootcamp — Day 1",         ratio:"4/3",  accent:"#166444" },
+  { cat:"lab",        title:"Antenna Measurement Lab",      ratio:"3/4",  accent:"#0b6e8c" },
+  { cat:"symposium",  title:"Robotics Challenge Finals",    ratio:"4/3",  accent:"#6416c4" },
+  { cat:"cultural",   title:"Freshers' Day 2025",           ratio:"3/4",  accent:"#c41652" },
+  { cat:"industrial", title:"ISRO Satellite Centre Visit",  ratio:"4/3",  accent:"#0b1b33" },
+  { cat:"sports",     title:"Chess Nationals — Gold",       ratio:"4/3",  accent:"#8c4516" },
+  { cat:"alumni",     title:"Alumni Mentorship Panel 2025", ratio:"3/4",  accent:"#1652c4" },
+  { cat:"workshop",   title:"Embedded Systems Bootcamp",    ratio:"16/9", accent:"#0b6644" },
+];
+
+var grid = document.getElementById('gallery-grid');
+var activeItems = galleryItems;
+var lbIndex = 0;
+
+function buildGrid(items){
+  grid.innerHTML = items.map(function(item,i){
+    return [
+      '<div class="gallery-item" data-index="'+i+'" data-cat="'+item.cat+'" ',
+          'role="button" tabindex="0" aria-label="View '+item.title+'" ',
+          'onclick="openLightbox('+i+')" onkeydown="if(event.key===\'Enter\')openLightbox('+i+')">',
+        '<div style="aspect-ratio:'+item.ratio+';background:linear-gradient(145deg,'+item.accent+'cc,'+item.accent+');display:flex;align-items:center;justify-content:center;position:relative">',
+          '<i class="fa-solid fa-image text-3xl" style="color:rgba(255,255,255,.25)"></i>',
+          '<div style="position:absolute;top:.6rem;left:.6rem">',
+            '<span style="font-size:.65rem;font-family:\'IBM Plex Mono\',monospace;background:rgba(0,0,0,.35);color:rgba(255,255,255,.8);padding:.2rem .55rem;border-radius:999px">'+item.cat+'</span>',
+          '</div>',
+        '</div>',
+        '<div class="overlay">',
+          '<p style="color:#fff;font-family:\'Space Grotesk\',sans-serif;font-size:.78rem;font-weight:600;line-height:1.3">'+item.title+'</p>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }).join('');
+}
+buildGrid(galleryItems);
+
+// Filter
+document.querySelectorAll('.gal-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.gal-btn').forEach(function(b){ b.classList.remove('active'); b.style.borderColor='#e2e8f0'; b.style.color='#5b6478'; });
+    btn.classList.add('active');
+    var cat = btn.dataset.cat;
+    activeItems = cat==='all' ? galleryItems : galleryItems.filter(function(it){ return it.cat===cat; });
+    buildGrid(activeItems);
+  });
+});
+
+// Lightbox
+var lb = document.getElementById('lightbox');
+
+function openLightbox(idx){
+  lbIndex = idx;
+  showLb(lbIndex);
+  lb.classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+
+function showLb(idx){
+  var item = activeItems[idx] || galleryItems[idx];
+  document.getElementById('lb-title').textContent = item.title;
+  document.getElementById('lb-cat').textContent = item.cat.toUpperCase();
+  document.getElementById('lb-caption').textContent = 'Replace with real photo — ' + item.title;
+  document.getElementById('lb-placeholder').style.background = 'linear-gradient(145deg,'+item.accent+'cc,'+item.accent+')';
+}
+
+function closeLb(){ lb.classList.remove('is-open'); document.body.style.overflow=''; }
+
+document.getElementById('lb-close').addEventListener('click', closeLb);
+document.getElementById('lightbox-bg').addEventListener('click', closeLb);
+document.getElementById('lb-prev').addEventListener('click', function(){
+  lbIndex = (lbIndex - 1 + activeItems.length) % activeItems.length;
+  showLb(lbIndex);
+});
+document.getElementById('lb-next').addEventListener('click', function(){
+  lbIndex = (lbIndex + 1) % activeItems.length;
+  showLb(lbIndex);
+});
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('is-open')) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowLeft'){ lbIndex=(lbIndex-1+activeItems.length)%activeItems.length; showLb(lbIndex); }
+  if(e.key==='ArrowRight'){ lbIndex=(lbIndex+1)%activeItems.length; showLb(lbIndex); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Achievements — ECE Department, SIET"/>
+  <title>Achievements — ECE | SIET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script>tailwind.config={theme:{extend:{colors:{'ink-navy':'#0b1b33','circuit-blue':'#1652c4','signal-cyan':'#2fe6dd','mist':'#f4f7fb'},fontFamily:{display:['Space Grotesk','sans-serif'],body:['IBM Plex Sans','sans-serif'],mono:['IBM Plex Mono','monospace']}}}}</script>
+  <style>
+    /* Timeline */
+    .timeline-track { position:relative; }
+    .timeline-track::before { content:''; position:absolute; left:1.65rem; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,#1652c4,#2fe6dd); border-radius:999px; }
+    .tl-dot { width:2.2rem; height:2.2rem; border-radius:999px; display:flex; align-items:center; justify-content:center; flex-shrink:0; z-index:1; box-shadow:0 0 0 4px #fff; }
+    /* Student filter */
+    .cat-btn { transition:all .25s; }
+    .cat-btn.active { background:#1652c4; color:#fff; border-color:#1652c4; }
+    .student-card { transition:transform .3s,box-shadow .3s,border-color .3s; }
+    .student-card:hover { transform:translateY(-5px); box-shadow:0 20px 40px -18px rgba(11,27,51,.2); border-color:rgba(22,82,196,.3); }
+  </style>
+</head>
+<body class="font-body antialiased" style="color:#0b1b33;background:#fff">
+<div id="loading-screen"><p class="loader-mark">ECE<span style="color:#2fe6dd">·</span>SIET</p><div class="loader-trace"></div></div>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<header id="site-header">
+  <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-mono text-xs font-semibold" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">ECE</div>
+      <div><p class="brand-text font-display font-semibold text-sm transition-colors">SIET</p><p class="brand-text text-xs opacity-60 mt-0.5 transition-colors">Electronics &amp; Communication</p></div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#about" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">About</a>
+      <a href="hod.html"            class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">HOD</a>
+      <a href="faculty.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Faculty</a>
+      <a href="labs.html"           class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Labs</a>
+      <a href="achievements.html"   class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all" style="color:#2fe6dd">Achievements</a>
+      <a href="placements.html"     class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Placements</a>
+      <a href="contact.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Contact</a>
+    </nav>
+    <a href="resources.html" class="hidden lg:inline-flex btn-primary text-sm font-semibold text-white rounded-xl" style="padding:.55rem 1.15rem">Resources</a>
+    <button id="menu-toggle" class="lg:hidden nav-link w-10 h-10 flex items-center justify-center rounded-xl" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-lg"></i><i class="fa-solid fa-xmark text-lg hidden"></i>
+    </button>
+  </div>
+  <nav id="mobile-menu">
+    <div class="max-w-screen-xl mx-auto px-5 pt-3 pb-5 flex flex-col gap-1" style="background:rgba(11,27,51,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08)">
+      <a href="../index.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Home</a>
+      <a href="faculty.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Faculty</a>
+      <a href="contact.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="relative flex items-end overflow-hidden" style="min-height:40vh;background:linear-gradient(135deg,#0b1b33 0%,#1652c4 100%);padding:8rem 1.25rem 3.5rem">
+    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.11"><svg width="100%" height="100%"><defs><pattern id="ph" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M0 40H80M40 0V80" stroke="#2fe6dd" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="2" fill="#2fe6dd"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph)"/></svg></div>
+    <div class="max-w-screen-xl mx-auto w-full relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="flex items-center gap-2 text-xs font-mono" style="color:rgba(255,255,255,.45)"><li><a href="../index.html" onmouseover="this.style.color='#2fe6dd'" onmouseout="this.style.color=''">Home</a></li><li><i class="fa-solid fa-chevron-right text-[10px]"></i></li><li style="color:#2fe6dd">Achievements</li></ol></nav>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-white">Achievements</h1>
+      <p class="mt-2 text-sm md:text-base" style="color:rgba(255,255,255,.55)">Department milestones &amp; student excellence — a legacy of results</p>
+    </div>
+  </section>
+
+  <!-- ── TAB SWITCHER ─────────────────────────────────── -->
+  <div class="sticky top-[80px] z-40 bg-white" style="border-bottom:1px solid #e2e8f0">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex gap-0">
+      <button id="tab-dept" class="px-6 py-4 text-sm font-semibold border-b-2 transition-all" style="border-color:#1652c4;color:#1652c4" onclick="switchTab('dept')">
+        <i class="fa-solid fa-building-columns mr-2"></i>Department
+      </button>
+      <button id="tab-student" class="px-6 py-4 text-sm font-semibold border-b-2 transition-all" style="border-color:transparent;color:#5b6478" onclick="switchTab('student')">
+        <i class="fa-solid fa-user-graduate mr-2"></i>Students
+      </button>
+    </div>
+  </div>
+
+  <!-- ── DEPARTMENT ACHIEVEMENTS TIMELINE ─────────────── -->
+  <section id="panel-dept" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-5 lg:px-8">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="eyebrow-tag font-mono text-xs uppercase tracking-widest mb-3" style="color:#1652c4">A Legacy of Excellence</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl" style="color:#0b1b33">Department Milestones</h2>
+      </div>
+
+      <div class="timeline-track space-y-8 pl-12" id="dept-timeline">
+        <!-- JS renders entries -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STUDENT ACHIEVEMENTS ────────────────────────── -->
+  <section id="panel-student" class="py-20 bg-white" style="display:none">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <p class="eyebrow-tag font-mono text-xs uppercase tracking-widest mb-3" style="color:#1652c4">Student Excellence</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl" style="color:#0b1b33">Student Achievements</h2>
+      </div>
+
+      <!-- Category filter -->
+      <div class="flex flex-wrap gap-2.5 mb-10 justify-center" data-aos="fade-up" data-aos-delay="40">
+        <button class="cat-btn active px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#1652c4" data-cat="all">All</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="hackathon">Hackathon</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="coding">Coding</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="paper">Paper Presentation</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="project">Project Expo</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="sports">Sports</button>
+        <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:#e2e8f0;color:#5b6478" data-cat="cultural">Cultural</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="student-grid">
+        <!-- JS renders -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#0b1b33;padding:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)">
+  <p>&copy; <span id="current-year">2026</span> ECE Department, SIET &nbsp;·&nbsp;
+     <a href="../index.html" style="color:rgba(255,255,255,.4);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">Back to Home</a></p>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="../js/main.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60});
+
+// ── Tab switcher ────────────────────────────────────────
+function switchTab(which){
+  ['dept','student'].forEach(function(t){
+    document.getElementById('panel-'+t).style.display = (t===which)?'block':'none';
+    var btn = document.getElementById('tab-'+t);
+    if(t===which){ btn.style.borderColor='#1652c4'; btn.style.color='#1652c4'; }
+    else          { btn.style.borderColor='transparent'; btn.style.color='#5b6478'; }
+  });
+}
+
+// ── Department timeline data ────────────────────────────
+var deptMilestones = [
+  { year:"2025", type:"Accreditation", icon:"fa-certificate",  color:"#1652c4", title:"NBA Re-Accreditation Granted",        desc:"Department successfully cleared NBA review for another 3-year cycle with commendation from the visiting committee." },
+  { year:"2025", type:"Research",      icon:"fa-flask",         color:"#0b6e8c", title:"DST-SERB Research Grant Awarded",      desc:"₹42 lakh grant sanctioned for IoT-based precision agriculture research under Dr. [Name]." },
+  { year:"2024", type:"MoU",           icon:"fa-handshake",     color:"#166444", title:"MoU Signed with Nexora Semiconductors",desc:"Industry partnership enabling live VLSI projects, internships, and campus placement drives." },
+  { year:"2024", type:"Patent",        icon:"fa-lightbulb",     color:"#8c6416", title:"Patent Granted — Low-Power ADC Design", desc:"Patent No. [####] granted for a novel low-power ADC architecture developed by faculty and final-year students." },
+  { year:"2024", type:"Event",         icon:"fa-trophy",        color:"#6416c4", title:"National Symposium ELECNOVA 2024",     desc:"Department hosted 800+ participants from 40 colleges. Keynote by IEEE Fellow from IIT Madras." },
+  { year:"2023", type:"Ranking",       icon:"fa-ranking-star",  color:"#c41652", title:"Top 50 ECE Departments — EduRank 2023",desc:"First time the department entered the national top-50 ranking for ECE programs among private engineering colleges." },
+  { year:"2023", type:"MoU",           icon:"fa-handshake",     color:"#166444", title:"MoU with Trident Embedded Systems",    desc:"Collaboration for an Embedded Systems Centre of Excellence within the department." },
+  { year:"2022", type:"Conference",    icon:"fa-microphone",    color:"#0b3366", title:"International Conference ICECES 2022", desc:"Organised 3-day IEEE-technically co-sponsored conference with 120 paper presentations." },
+  { year:"2022", type:"Award",         icon:"fa-award",         color:"#8c1616", title:"Best Engineering Department — SIET",   desc:"Recognised at the annual institute day for highest placement percentage and student activity index." },
+  { year:"2020", type:"Lab",           icon:"fa-network-wired", color:"#0b6644", title:"IoT & Wireless Networks Lab Inaugurated",desc:"New industry-sponsored lab funded with ₹28 lakh, equipped with LoRa, AWS IoT, and edge computing nodes." },
+  { year:"1999", type:"Milestone",     icon:"fa-flag",          color:"#0b1b33", title:"Department Established",               desc:"Department of ECE founded as part of SIET with an initial intake of 60 students per year." }
+];
+
+var tl = document.getElementById('dept-timeline');
+tl.innerHTML = deptMilestones.map(function(m,i){
+  return [
+    '<div class="relative flex gap-5 items-start" data-aos="fade-up" data-aos-delay="'+(i%4*60)+'">',
+      '<div class="tl-dot" style="background:'+m.color+'">',
+        '<i class="fa-solid '+m.icon+' text-white" style="font-size:.65rem"></i>',
+      '</div>',
+      '<div class="surface-card rounded-2xl p-5 flex-1 mb-1">',
+        '<div class="flex items-center gap-3 mb-2 flex-wrap">',
+          '<span class="font-mono font-semibold text-sm" style="color:'+m.color+'">'+m.year+'</span>',
+          '<span class="px-2.5 py-0.5 rounded-lg text-xs font-mono" style="background:#f0f4ff;color:#1652c4">'+m.type+'</span>',
+        '</div>',
+        '<h4 class="font-display font-semibold text-sm mb-1.5" style="color:#0b1b33">'+m.title+'</h4>',
+        '<p class="text-xs leading-relaxed" style="color:#5b6478">'+m.desc+'</p>',
+      '</div>',
+    '</div>'
+  ].join('');
+}).join('');
+
+// ── Student achievements data ───────────────────────────
+var studentAchievements = [
+  { cat:"hackathon", name:"[Student Name]", reg:"212X##001", year:"IV Year", event:"Smart India Hackathon 2025", position:"Winner", achievement:"1st Place — National Level" },
+  { cat:"hackathon", name:"[Student Name]", reg:"212X##002", year:"III Year", event:"IIT Bombay TechFest Hackathon 2025", position:"Runner-up", achievement:"2nd Place — Zonal" },
+  { cat:"coding",    name:"[Student Name]", reg:"212X##003", year:"II Year",  event:"LeetCode Weekly Contest #420", position:"Top 100", achievement:"Global Rank 87" },
+  { cat:"coding",    name:"[Student Name]", reg:"212X##004", year:"III Year", event:"HackerRank National Coding League", position:"Gold",    achievement:"Gold Badge — Problem Solving" },
+  { cat:"paper",     name:"[Student Name]", reg:"212X##005", year:"IV Year",  event:"IEEE Student Paper Contest 2025", position:"1st",      achievement:"Best Paper Award" },
+  { cat:"paper",     name:"[Student Name]", reg:"212X##006", year:"III Year", event:"IETE National Paper Contest",     position:"2nd",      achievement:"2nd Place — Technical Track" },
+  { cat:"project",   name:"[Student Name]", reg:"212X##007", year:"IV Year",  event:"National Project Expo — IIT Madras", position:"1st",   achievement:"Best Project — ECE Category" },
+  { cat:"project",   name:"[Student Name]", reg:"212X##008", year:"IV Year",  event:"State Level Project Contest 2025",  position:"1st",    achievement:"1st Place — Electronics" },
+  { cat:"sports",    name:"[Student Name]", reg:"212X##009", year:"II Year",  event:"Inter-University Chess Championship", position:"Gold", achievement:"Gold Medal" },
+  { cat:"cultural",  name:"[Student Name]", reg:"212X##010", year:"I Year",   event:"Kalai Vizha 2025 — Singing",       position:"1st",    achievement:"Best Singer Award" },
+  { cat:"hackathon", name:"[Student Name]", reg:"212X##011", year:"III Year", event:"Techathon 2025 — Anna University", position:"1st",    achievement:"1st Place — IoT Track" },
+  { cat:"coding",    name:"[Student Name]", reg:"212X##012", year:"II Year",  event:"CodeChef Division 2 Global Rank",   position:"Top 50", achievement:"Global Rank 38" },
+];
+
+var catColors = {hackathon:'#1652c4',coding:'#0b6e8c',paper:'#6416c4',project:'#166444',sports:'#8c4516',cultural:'#c41652'};
+var catIcons  = {hackathon:'fa-laptop-code',coding:'fa-code',paper:'fa-file-lines',project:'fa-flask',sports:'fa-medal',cultural:'fa-music'};
+
+var sg = document.getElementById('student-grid');
+sg.innerHTML = studentAchievements.map(function(s,i){
+  var c = catColors[s.cat]||'#1652c4';
+  var ic = catIcons[s.cat]||'fa-star';
+  return [
+    '<article class="student-card surface-card rounded-2xl overflow-hidden" data-cat="'+s.cat+'" data-aos="fade-up" data-aos-delay="'+(i%3*60)+'">',
+      '<div class="h-24 flex items-center justify-between px-6" style="background:linear-gradient(135deg,'+c+','+c+'bb)">',
+        '<div>',
+          '<p class="font-mono text-xs mb-1" style="color:rgba(255,255,255,.55)">'+s.cat.toUpperCase()+'</p>',
+          '<p class="font-display font-bold text-white text-lg">'+s.position+'</p>',
+        '</div>',
+        '<div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:rgba(255,255,255,.15)">',
+          '<i class="fa-solid '+ic+' text-xl text-white"></i>',
+        '</div>',
+      '</div>',
+      '<div class="p-5">',
+        '<p class="font-display font-bold text-sm mb-0.5" style="color:#0b1b33">'+s.achievement+'</p>',
+        '<p class="text-xs mb-3" style="color:#5b6478">'+s.event+'</p>',
+        '<div style="border-top:1px solid #e2e8f0;padding-top:.75rem;display:flex;justify-content:space-between;align-items:center">',
+          '<div>',
+            '<p class="font-semibold text-xs" style="color:#0b1b33">'+s.name+'</p>',
+            '<p class="font-mono text-[10px] mt-0.5" style="color:#aab4c8">'+s.reg+' · '+s.year+'</p>',
+          '</div>',
+          '<span class="px-2.5 py-1 rounded-lg text-[10px] font-mono" style="background:#f0f4ff;color:#1652c4">'+s.cat+'</span>',
+        '</div>',
+      '</div>',
+    '</article>'
+  ].join('');
+}).join('');
+
+// Category filter
+document.querySelectorAll('.cat-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); b.style.borderColor='#e2e8f0'; b.style.color='#5b6478'; });
+    btn.classList.add('active');
+    var cat = btn.dataset.cat;
+    document.querySelectorAll('.student-card').forEach(function(card){
+      card.style.display = (cat==='all'||card.dataset.cat===cat)?'':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

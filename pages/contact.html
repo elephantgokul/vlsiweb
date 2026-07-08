@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Contact — ECE Department, SIET"/>
+  <title>Contact — ECE | SIET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script>tailwind.config={theme:{extend:{colors:{'ink-navy':'#0b1b33','circuit-blue':'#1652c4','signal-cyan':'#2fe6dd','mist':'#f4f7fb'},fontFamily:{display:['Space Grotesk','sans-serif'],body:['IBM Plex Sans','sans-serif'],mono:['IBM Plex Mono','monospace']}}}}</script>
+  <style>
+    .form-input { width:100%;padding:.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:.75rem;font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;color:#0b1b33;transition:border-color .25s,box-shadow .25s;outline:none;background:#fff; }
+    .form-input:focus { border-color:#1652c4;box-shadow:0 0 0 3px rgba(22,82,196,.1); }
+    .form-input::placeholder { color:#aab4c8; }
+  </style>
+</head>
+<body class="font-body antialiased" style="color:#0b1b33;background:#fff">
+<div id="loading-screen"><p class="loader-mark">ECE<span style="color:#2fe6dd">·</span>SIET</p><div class="loader-trace"></div></div>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<header id="site-header">
+  <div class="max-w-screen-xl mx-auto px-5 lg:px-8 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-mono text-xs font-semibold" style="background:linear-gradient(135deg,#1652c4,#2fe6dd)">ECE</div>
+      <div><p class="brand-text font-display font-semibold text-sm transition-colors">SIET</p><p class="brand-text text-xs opacity-60 mt-0.5 transition-colors">Electronics &amp; Communication</p></div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#about" class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">About</a>
+      <a href="hod.html"            class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">HOD</a>
+      <a href="faculty.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Faculty</a>
+      <a href="labs.html"           class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Labs</a>
+      <a href="achievements.html"   class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Achievements</a>
+      <a href="placements.html"     class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all">Placements</a>
+      <a href="contact.html"        class="nav-link px-3.5 py-2 text-sm font-medium rounded-lg transition-all" style="color:#2fe6dd">Contact</a>
+    </nav>
+    <a href="resources.html" class="hidden lg:inline-flex btn-primary text-sm font-semibold text-white rounded-xl" style="padding:.55rem 1.15rem">Resources</a>
+    <button id="menu-toggle" class="lg:hidden nav-link w-10 h-10 flex items-center justify-center rounded-xl" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-lg"></i><i class="fa-solid fa-xmark text-lg hidden"></i>
+    </button>
+  </div>
+  <nav id="mobile-menu">
+    <div class="max-w-screen-xl mx-auto px-5 pt-3 pb-5 flex flex-col gap-1" style="background:rgba(11,27,51,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08)">
+      <a href="../index.html" class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Home</a>
+      <a href="faculty.html"  class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Faculty</a>
+      <a href="labs.html"     class="px-4 py-3 text-sm font-medium text-white/75 hover:text-white rounded-xl hover:bg-white/10 transition-all">Labs</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="relative flex items-end overflow-hidden" style="min-height:38vh;background:linear-gradient(135deg,#0b1b33 0%,#1652c4 100%);padding:8rem 1.25rem 3.5rem">
+    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.11"><svg width="100%" height="100%"><defs><pattern id="ph" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M0 40H80M40 0V80" stroke="#2fe6dd" stroke-width="1" fill="none"/><circle cx="40" cy="40" r="2" fill="#2fe6dd"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph)"/></svg></div>
+    <div class="max-w-screen-xl mx-auto w-full relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-4"><ol class="flex items-center gap-2 text-xs font-mono" style="color:rgba(255,255,255,.45)"><li><a href="../index.html" style="transition:color .2s" onmouseover="this.style.color='#2fe6dd'" onmouseout="this.style.color=''">Home</a></li><li><i class="fa-solid fa-chevron-right text-[10px]"></i></li><li style="color:#2fe6dd">Contact</li></ol></nav>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-white">Get in Touch</h1>
+      <p class="mt-2 text-sm md:text-base" style="color:rgba(255,255,255,.55)">We'd love to hear from you — students, parents, alumni, and recruiters welcome</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-white">
+    <div class="max-w-screen-xl mx-auto px-5 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+        <!-- Contact info -->
+        <div data-aos="fade-right">
+          <p class="eyebrow-tag font-mono text-xs uppercase tracking-widest mb-3" style="color:#1652c4">Contact Details</p>
+          <h2 class="font-display font-bold text-2xl md:text-3xl mb-8" style="color:#0b1b33">Department of ECE, SIET</h2>
+
+          <div class="space-y-5 mb-10">
+            <div class="flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#f0f4ff">
+                <i class="fa-solid fa-location-dot" style="color:#1652c4"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-sm mb-1" style="color:#0b1b33">Address</p>
+                <p style="font-size:.84rem;color:#5b6478;line-height:1.65">Department of ECE, SIET Campus,<br/>Main Road, Tamil Nadu – 123 456, India</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#f0f4ff">
+                <i class="fa-solid fa-phone" style="color:#1652c4"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-sm mb-1" style="color:#0b1b33">Phone</p>
+                <a href="tel:+919876543210" style="font-size:.84rem;color:#1652c4">+91 98765 43210</a><br/>
+                <a href="tel:+914412345678" style="font-size:.84rem;color:#1652c4">+91 44 1234 5678</a>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#f0f4ff">
+                <i class="fa-solid fa-envelope" style="color:#1652c4"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-sm mb-1" style="color:#0b1b33">Email</p>
+                <a href="mailto:ece@siet.ac.in" style="font-size:.84rem;color:#1652c4">ece@siet.ac.in</a><br/>
+                <a href="mailto:hod.ece@siet.ac.in" style="font-size:.84rem;color:#1652c4">hod.ece@siet.ac.in</a>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#f0f4ff">
+                <i class="fa-solid fa-clock" style="color:#1652c4"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-sm mb-1" style="color:#0b1b33">Office Hours</p>
+                <p style="font-size:.84rem;color:#5b6478">Monday – Friday: 9:00 AM – 5:00 PM</p>
+                <p style="font-size:.84rem;color:#5b6478">Saturday: 9:00 AM – 1:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="p-6 rounded-2xl" style="background:#f4f7fb">
+            <p class="font-semibold text-sm mb-4" style="color:#0b1b33">Follow the Department</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all" style="background:#1652c4;color:#fff">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all" style="background:#fff;border:1.5px solid #e2e8f0;color:#5b6478" onmouseover="this.style.borderColor='#1652c4';this.style.color='#1652c4'" onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#5b6478'">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all" style="background:#fff;border:1.5px solid #e2e8f0;color:#5b6478" onmouseover="this.style.borderColor='#1652c4';this.style.color='#1652c4'" onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#5b6478'">
+                <i class="fa-brands fa-youtube"></i> YouTube
+              </a>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="mt-6 rounded-2xl overflow-hidden" style="height:220px;background:linear-gradient(145deg,#e8edf5,#d0d8e8);border:1.5px solid #e2e8f0;display:flex;align-items:center;justify-content:center">
+            <div class="text-center">
+              <i class="fa-solid fa-map-location-dot text-3xl mb-2" style="color:#1652c4"></i>
+              <p class="text-sm font-medium" style="color:#5b6478">Google Maps embed here</p>
+              <p class="text-xs mt-1" style="color:#aab4c8">Replace with your &lt;iframe&gt; from Google Maps</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div data-aos="fade-left" data-aos-delay="80">
+          <div class="surface-card rounded-3xl p-8 md:p-10">
+            <h3 class="font-display font-bold text-xl mb-2" style="color:#0b1b33">Send us a Message</h3>
+            <p class="text-sm mb-8" style="color:#5b6478">We typically respond within 1 business day.</p>
+
+            <form id="contact-form" novalidate>
+              <div class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="name" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" class="form-input" required/>
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" class="form-input" required/>
+                  </div>
+                </div>
+                <div>
+                  <label for="phone" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">Phone</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" class="form-input"/>
+                </div>
+                <div>
+                  <label for="category" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">I am a *</label>
+                  <select id="category" name="category" class="form-input" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option>Student (Current)</option>
+                    <option>Student (Prospective)</option>
+                    <option>Parent</option>
+                    <option>Alumni</option>
+                    <option>Industry / Recruiter</option>
+                    <option>Researcher / Collaborator</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="subject" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">Subject *</label>
+                  <input type="text" id="subject" name="subject" placeholder="Brief subject line" class="form-input" required/>
+                </div>
+                <div>
+                  <label for="message" class="block text-xs font-semibold mb-2 font-mono uppercase tracking-wide" style="color:#0b1b33">Message *</label>
+                  <textarea id="message" name="message" rows="5" placeholder="Write your message here…" class="form-input" style="resize:vertical" required></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                        class="w-full btn-primary text-white font-semibold rounded-xl flex items-center justify-center gap-2"
+                        style="padding:.85rem 1.5rem">
+                  Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+
+                <!-- Success msg (hidden by default) -->
+                <div id="form-success" style="display:none;background:#ecfdf5;border:1.5px solid #86efac;border-radius:.75rem;padding:1rem 1.25rem;font-size:.84rem;color:#15803d;display:flex;align-items:center;gap:.6rem">
+                  <i class="fa-solid fa-circle-check"></i>
+                  Message sent! We'll get back to you within 1 business day.
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#0b1b33;padding:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)">
+  <p>&copy; <span id="current-year">2026</span> ECE Department, SIET &nbsp;·&nbsp;
+     <a href="../index.html" style="color:rgba(255,255,255,.4);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">Back to Home</a>
+  </p>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="../js/main.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60});
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var s=document.getElementById('form-success');
+  s.style.display='flex';
+  this.reset();
+  s.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+</script>
+</body>
+</html>
