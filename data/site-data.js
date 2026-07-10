@@ -2,7 +2,7 @@
 // top-level var so it's reachable from other plain <script> tags
 
 var newsData = [
-  { id:1, date:"2026-06-25", tag:"Achievement", title:"ECE Team Wins National Robotics Challenge", excerpt:"Final-year students secured first place at the National Robotics Championship with an autonomous navigation bot." },
+  { id:1, date:"2026-06-25", tag:"Achievement", title:"VLSI Team Wins National Robotics Challenge", excerpt:"Final-year students secured first place at the National Robotics Championship with an autonomous navigation bot." },
   { id:2, date:"2026-06-18", tag:"Partnership",  title:"Department Signs MoU for New IoT Research Lab", excerpt:"A new collaboration brings industry-grade IoT hardware and mentorship directly into the research wing." },
   { id:3, date:"2026-06-10", tag:"Research",     title:"Faculty Paper Accepted at IEEE Signal Processing Conference", excerpt:"Research on low-power signal compression accepted for presentation at a leading IEEE conference." },
   { id:4, date:"2026-06-02", tag:"Placements",   title:"Pre-Final Years Secure Early Placement Offers", excerpt:"Twelve third-year students received pre-placement offers from leading semiconductor and telecom recruiters." }
